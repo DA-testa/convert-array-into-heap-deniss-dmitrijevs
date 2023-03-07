@@ -1,14 +1,43 @@
 # python3
 
-
 def build_heap(data):
     swaps = []
     # TODO: Creat heap and heap sort
     # try to achieve  O(n) and not O(n2)
 
+    n = len(data)
 
+    for i in range(n // 2 + 1, 0, -1):
+        sift_down(i, data, swaps)
+
+    print(data)
     return swaps
 
+def sift_down(i, data, swaps):
+    r_child = 2 * i + 2
+    l_child = 2 * i + 1
+
+    incorrect_child = 0
+
+    if r_child < len(data):
+        if not correct_parent_to_child_relation(data[i], data[r_child]):
+            incorrect_child = r_child
+            data[i], data[r_child] =  data[r_child], data[i]
+            swaps.append([i, r_child])
+            sift_down(i // 2, data, swaps)
+    if l_child < len(data):
+        if not correct_parent_to_child_relation(data[i], data[l_child]):
+            incorrect_child = r_child
+            data[i], data[l_child] =  data[l_child], data[i]
+            swaps.append([i, l_child])
+            sift_down(i // 2, data, swaps)
+
+
+def correct_parent_to_child_relation(parent, child):
+    if parent <= child:
+        return True
+    else:
+        return False
 
 def main():
     
