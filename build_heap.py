@@ -75,8 +75,9 @@ def main():
 
     # output all swaps
     print(len(swaps))
-    for i, j in swaps:
-        print(i, j)
+    if not 'F' in input_type:
+        for i, j in swaps:
+            print(i, j)
 
 
 if __name__ == "__main__":
