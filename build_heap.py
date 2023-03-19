@@ -1,5 +1,8 @@
 # python3
 
+#Deniss Dmitrijevs
+#221RDB322
+
 def build_heap(data):
     swaps = []
     # TODO: Creat heap and heap sort
